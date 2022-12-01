@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/ggkt_parent/pom.xml" />
+        <option value="$PROJECT_DIR$/ggkt_mp_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/parent/pom.xml" />
+        <option value="$PROJECT_DIR$/online_parent/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/ggkt_mp_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/online_parent/service/service_activity/pom.xml" />
+        <option value="$PROJECT_DIR$/online_parent/service/service_live/pom.xml" />
+        <option value="$PROJECT_DIR$/online_parent/service/service_order/pom.xml" />
+        <option value="$PROJECT_DIR$/online_parent/service_client/service_activity_client/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8 (2)" project-jdk-type="JavaSDK" />
+</project>

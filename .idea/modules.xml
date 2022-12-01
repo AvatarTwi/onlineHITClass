@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/online_parent/common/common.iml" filepath="$PROJECT_DIR$/online_parent/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online_parent/model/model.iml" filepath="$PROJECT_DIR$/online_parent/model/model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/onlineHITClass.iml" filepath="$PROJECT_DIR$/.idea/onlineHITClass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online_parent/online_parent.iml" filepath="$PROJECT_DIR$/online_parent/online_parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ggkt_parent/parent.iml" filepath="$PROJECT_DIR$/ggkt_parent/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online_parent/service/service.iml" filepath="$PROJECT_DIR$/online_parent/service/service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online_parent/service_client/service_client.iml" filepath="$PROJECT_DIR$/online_parent/service_client/service_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online_parent/service_client/service_course_client/service_course_client.iml" filepath="$PROJECT_DIR$/online_parent/service_client/service_course_client/service_course_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online_parent/service_gateway/service_gateway.iml" filepath="$PROJECT_DIR$/online_parent/service_gateway/service_gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online_parent/service/service_user/service_user.iml" filepath="$PROJECT_DIR$/online_parent/service/service_user/service_user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online_parent/service_client/service_user_client/service_user_client.iml" filepath="$PROJECT_DIR$/online_parent/service_client/service_user_client/service_user_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online_parent/common/service_utils/service_utils.iml" filepath="$PROJECT_DIR$/online_parent/common/service_utils/service_utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online_parent/service/service_vod/service_vod.iml" filepath="$PROJECT_DIR$/online_parent/service/service_vod/service_vod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online_parent/service/service_wechat/service_wechat.iml" filepath="$PROJECT_DIR$/online_parent/service/service_wechat/service_wechat.iml" />
+    </modules>
+  </component>
+</project>
