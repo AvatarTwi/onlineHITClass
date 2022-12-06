@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/admin/user/userInfo")
 public class UserInfoController {
 
-
     @Autowired
     private UserInfoService userInfoService;
 
