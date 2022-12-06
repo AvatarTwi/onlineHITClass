@@ -1,7 +1,7 @@
 package com.hit.onlineclass.vod.service.impl;
 
 import com.alibaba.excel.EasyExcel;
-import com.hit.onlineclass.exception.GgktException;
+import com.hit.onlineclass.exception.HitOnlineClassException;
 import com.hit.onlineclass.model.vod.Subject;
 import com.hit.onlineclass.vo.vod.SubjectEeVo;
 import com.hit.onlineclass.vod.listener.SubjectListener;
@@ -82,7 +82,7 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> impl
                     .sheet("课程分类")
                     .doWrite(subjectEeVoList);
         }catch(Exception e) {
-            throw new GgktException(20001,"导出失败");
+            throw new HitOnlineClassException(20001,"导出失败");
         }
     }
 
@@ -94,7 +94,7 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> impl
                     SubjectEeVo.class,
                     subjectListener).sheet().doRead();
         } catch (IOException e) {
-            throw new GgktException(20001,"导入失败");
+            throw new HitOnlineClassException(20001,"导入失败");
         }
     }
 

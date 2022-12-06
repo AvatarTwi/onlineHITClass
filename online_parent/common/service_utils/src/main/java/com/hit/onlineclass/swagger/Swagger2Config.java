@@ -15,7 +15,7 @@ public class Swagger2Config {
     @Bean
     public Docket webApiConfig(){
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("ggkt")
+                .groupName("HitOnlineClass")
                 .apiInfo(webApiInfo())
                 .select()
                 //只显示api路径下的页面

@@ -2,7 +2,7 @@ package com.hit.onlineclass.wechat.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.hit.onlineclass.exception.GgktException;
+import com.hit.onlineclass.exception.HitOnlineClassException;
 import com.hit.onlineclass.model.wechat.Menu;
 import com.hit.onlineclass.result.Result;
 import com.hit.onlineclass.vo.wechat.MenuVo;
@@ -66,7 +66,7 @@ public class MenuController {
             return Result.ok(access_token);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new GgktException(20001,"获取access_token失败");
+            throw new HitOnlineClassException(20001,"获取access_token失败");
         }
     }
 

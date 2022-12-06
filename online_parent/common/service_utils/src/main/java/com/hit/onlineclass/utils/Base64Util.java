@@ -29,12 +29,5 @@ public class Base64Util {
     public static boolean isNumeric(String str){
         Pattern pattern = Pattern.compile("^[1-9][0-9]*$");
         return pattern.matcher(str).matches();
-
-    }
-
-    public static void main(String[] args) {
-        System.out.println(UrlUtil.getParam("http://glkt.hit.cn/#/liveInfo/7?recommend=MQ==", "recommend"));
-        System.out.println(Base64Util.base64Encode("q2"));
-        System.out.println(Base64Util.base64Decode("MQ=="));
     }
 }

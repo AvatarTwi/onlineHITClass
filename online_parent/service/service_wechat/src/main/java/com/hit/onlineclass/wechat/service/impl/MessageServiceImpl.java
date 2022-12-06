@@ -3,10 +3,7 @@ package com.hit.onlineclass.wechat.service.impl;
 import com.hit.onlineclass.client.course.CourseFeignClient;
 import com.hit.onlineclass.model.vod.Course;
 import com.hit.onlineclass.wechat.service.MessageService;
-import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
-import me.chanjar.weixin.mp.bean.template.WxMpTemplateData;
-import me.chanjar.weixin.mp.bean.template.WxMpTemplateMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -100,7 +97,7 @@ public class MessageServiceImpl implements MessageService {
             articles.append("<Title><![CDATA["+course.getTitle()+"]]></Title>");
             articles.append("<Description><![CDATA["+course.getTitle()+"]]></Description>");
             articles.append("<PicUrl><![CDATA["+course.getCover()+"]]></PicUrl>");
-            articles.append("<Url><![CDATA[http://glkt.hit.cn/#/liveInfo/"+course.getId()+"]]></Url>");
+            articles.append("<Url><![CDATA[http://hit8080.vipgz4.91tunnel.com/#/courseinfo/"+course.getId()+"]]></Url>");
             articles.append("</item>");
 
             text.append("<xml>");

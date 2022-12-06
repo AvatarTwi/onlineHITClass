@@ -1,14 +1,18 @@
 package com.hit.onlineclass.vod.controller;
 
-import com.hit.onlineclass.exception.GgktException;
+import com.hit.onlineclass.exception.HitOnlineClassException;
 import com.hit.onlineclass.result.Result;
 import com.hit.onlineclass.vod.service.VodService;
 import com.hit.onlineclass.vod.utils.ConstantPropertiesUtil;
 import com.hit.onlineclass.vod.utils.Signature;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Random;
 
 @Api(tags = "腾讯云点播")
@@ -37,21 +41,30 @@ public class VodController {
         } catch (Exception e) {
             System.out.print("获取签名失败");
             e.printStackTrace();
-            throw new GgktException(20001,"获取签名失败");
+            throw new HitOnlineClassException(20001,"获取签名失败");
         }
     }
 
-    //上传视频接口
+    //上传视频
+    //TODO
     @PostMapping("upload")
-    public Result upload() {
-        String fileId = vodService.updateVideo();
-        return Result.ok(fileId);
+    public Result uploadVideo(
+//            @ApiParam(name = "file", value = "文件", required = true)
+//            @RequestParam("file") MultipartFile file
+    ) throws IOException {
+//        InputStream inputStream = file.getInputStream();
+//        String originalFilename = file.getOriginalFilename();
+        String videoId = vodService.uploadVideo(
+//                inputStream, originalFilename
+                null,null
+        );
+        return Result.ok(videoId);
     }
 
-    //删除腾讯云视频
-    @DeleteMapping("remove/{fileId}")
-    public Result remove(@PathVariable String fileId) {
-        vodService.removeVideo(fileId);
+    //删除视频
+    @DeleteMapping("remove/{videoSourceId}")
+    public Result removeVideo( @PathVariable String videoSourceId) {
+        vodService.removeVideo(videoSourceId);
         return Result.ok(null);
     }
 }

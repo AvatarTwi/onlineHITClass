@@ -26,10 +26,10 @@ public class GlobalExceptionHandler {
         return Result.fail(null).message("执行ArithmeticException异常处理");
     }
 
-    //自定义异常处理GgktException
-    @ExceptionHandler(GgktException.class)
+    //自定义异常处理HitOnlineClassException
+    @ExceptionHandler(HitOnlineClassException.class)
     @ResponseBody
-    public Result error(GgktException e) {
+    public Result error(HitOnlineClassException e) {
         e.printStackTrace();
         return Result.fail(null).code(e.getCode()).message(e.getMsg());
     }

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GgktException extends RuntimeException {
+public class HitOnlineClassException extends RuntimeException {
     private Integer code;
     private String msg;
 }

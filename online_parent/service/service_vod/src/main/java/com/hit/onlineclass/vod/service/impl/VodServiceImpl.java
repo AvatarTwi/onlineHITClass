@@ -1,6 +1,6 @@
 package com.hit.onlineclass.vod.service.impl;
 
-import com.hit.onlineclass.exception.GgktException;
+import com.hit.onlineclass.exception.HitOnlineClassException;
 import com.hit.onlineclass.model.vod.Video;
 import com.hit.onlineclass.vod.service.VideoService;
 import com.hit.onlineclass.vod.service.VodService;
@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,54 +31,50 @@ public class VodServiceImpl implements VodService {
 
     @Value("${tencent.video.appid}")
     private String appId;
+
     //上传视频
     @Override
-    public String updateVideo() {
-        //指定当前腾讯云账号id和key
-        VodUploadClient client = new VodUploadClient(ConstantPropertiesUtil.ACCESS_KEY_ID,
-                                                     ConstantPropertiesUtil.ACCESS_KEY_SECRET);
-        //上传请求对象
-        VodUploadRequest request = new VodUploadRequest();
-        //设置视频文件在本地路径
-        request.setMediaFilePath("D:\\001.mp4");
-        //任务流
-        request.setProcedure("LongVideoPreset");
+    public String uploadVideo(InputStream inputStream, String originalFilename) {
         try {
-            //调用方法上传视频，指定地域
+            VodUploadClient client =
+                    new VodUploadClient(ConstantPropertiesUtil.ACCESS_KEY_ID,
+                            ConstantPropertiesUtil.ACCESS_KEY_SECRET);
+            VodUploadRequest request = new VodUploadRequest();
+            //视频本地地址
+            request.setMediaFilePath("E:\\cartoon\\S02E01.mp4");
+            //指定任务流
+            request.setProcedure("LongVideoPreset");
+            //调用上传方法，传入接入点地域及上传请求。
             VodUploadResponse response = client.upload("ap-guangzhou", request);
-            //获取上传之后视频id
-            return response.getFileId();
+            //返回文件id保存到业务表，用于控制视频播放
+            String fileId = response.getFileId();
+            System.out.println("Upload FileId = {}"+response.getFileId());
+            return fileId;
         } catch (Exception e) {
-            // 业务方进行异常处理
-            throw new GgktException(20001,"上传视频失败");
+            System.out.println(e.toString());
         }
+        return null;
     }
 
-    //删除腾讯云视频
+    //删除视频
     @Override
-    public void removeVideo(String fileId) {
+    public void removeVideo(String videoSourceId) {
         try{
-            // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
-            Credential cred = new Credential(ConstantPropertiesUtil.ACCESS_KEY_ID,
-                                             ConstantPropertiesUtil.ACCESS_KEY_SECRET);
-            // 实例化一个http选项，可选的，没有特殊需求可以跳过
-            HttpProfile httpProfile = new HttpProfile();
-            httpProfile.setEndpoint("vod.tencentcloudapi.com");
-            // 实例化一个client选项，可选的，没有特殊需求可以跳过
-            ClientProfile clientProfile = new ClientProfile();
-            clientProfile.setHttpProfile(httpProfile);
+            // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey,此处还需注意密钥对的保密
+            Credential cred =
+                    new Credential(ConstantPropertiesUtil.ACCESS_KEY_ID,
+                            ConstantPropertiesUtil.ACCESS_KEY_SECRET);
             // 实例化要请求产品的client对象,clientProfile是可选的
-            VodClient client = new VodClient(cred, "", clientProfile);
+            VodClient client = new VodClient(cred, "");
             // 实例化一个请求对象,每个接口都会对应一个request对象
             DeleteMediaRequest req = new DeleteMediaRequest();
-            req.setFileId(fileId);
+            req.setFileId(videoSourceId);
             // 返回的resp是一个DeleteMediaResponse的实例，与请求对象对应
             DeleteMediaResponse resp = client.DeleteMedia(req);
             // 输出json格式的字符串回包
             System.out.println(DeleteMediaResponse.toJsonString(resp));
         } catch (TencentCloudSDKException e) {
             System.out.println(e.toString());
-            throw new GgktException(20001,"删除视频失败");
         }
     }
 
@@ -87,7 +84,7 @@ public class VodServiceImpl implements VodService {
         //根据小节id获取小节对象，获取腾讯云视频id
         Video video = videoService.getById(videoId);
         if(video == null) {
-            throw new GgktException(20001,"小节信息不存在");
+            throw new HitOnlineClassException(20001,"小节信息不存在");
         }
 
         Map<String, Object> map = new HashMap<>();

@@ -27,6 +27,7 @@ public class VodApiController {
             @PathVariable Long courseId,
             @ApiParam(value = "小节id", required = true)
             @PathVariable Long videoId) {
+        System.out.println("courseId:"+courseId+" videoId:"+videoId);
         Map<String,Object> map = vodService.getPlayAuth(courseId,videoId);
         return Result.ok(map);
     }

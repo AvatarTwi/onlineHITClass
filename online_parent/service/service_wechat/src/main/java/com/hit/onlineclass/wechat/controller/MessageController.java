@@ -24,7 +24,7 @@ import java.util.Map;
 @RequestMapping("/api/wechat/message")
 public class MessageController {
 
-    private static final String token = "ggkt";
+    private static final String token = "HitOnlineClass";
 
     @Autowired
     private MessageService messageService;

@@ -2,7 +2,7 @@ package com.hit.onlineclass.wechat.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.hit.onlineclass.exception.GgktException;
+import com.hit.onlineclass.exception.HitOnlineClassException;
 import com.hit.onlineclass.model.wechat.Menu;
 import com.hit.onlineclass.vo.wechat.MenuVo;
 import com.hit.onlineclass.wechat.mapper.MenuMapper;
@@ -40,7 +40,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
             wxMpService.getMenuService().menuDelete();
         } catch (WxErrorException e) {
             e.printStackTrace();
-            throw new GgktException(20001,"公众号菜单删除失败");
+            throw new HitOnlineClassException(20001,"公众号菜单删除失败");
         }
     }
 
@@ -84,7 +84,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
             System.out.println("menuId"+menuId);
         } catch (WxErrorException e) {
             e.printStackTrace();
-            throw new GgktException(20001,"公众号菜单同步失败");
+            throw new HitOnlineClassException(20001,"公众号菜单同步失败");
         }
     }
 

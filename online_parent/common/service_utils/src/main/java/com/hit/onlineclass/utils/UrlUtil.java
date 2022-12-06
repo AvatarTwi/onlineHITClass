@@ -6,10 +6,6 @@ import java.util.Map;
 
 public class UrlUtil {
 
-    public static void main(String[] args) {
-        System.out.println(getParam("http://glkt.hit.cn/#/liveInfo/4?recommend=1", "recommend"));
-    }
-
     /**
      * 获取请求地址中的某个参数
      * @param url

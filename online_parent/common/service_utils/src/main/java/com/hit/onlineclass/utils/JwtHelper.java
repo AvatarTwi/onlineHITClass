@@ -15,7 +15,7 @@ public class JwtHelper {
     public static String createToken(Long userId, String userName) {
         String token = Jwts.builder()
                 //设置token分类
-                .setSubject("GGKT-USER")
+                .setSubject("HitOnlineClass-USER")
                 //token字符串有效时长
                 .setExpiration(new Date(System.currentTimeMillis() + tokenExpiration))
                 //私有部分（用户信息）

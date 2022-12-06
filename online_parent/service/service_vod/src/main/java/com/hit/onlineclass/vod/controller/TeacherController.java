@@ -51,7 +51,7 @@ public class TeacherController {
 //            int i = 10/0;
 //        }catch (Exception e) {
 //            //抛出异常
-//            throw new GgktException(201,"执行自定义异常处理GgktException");
+//            throw new HitOnlineClassException(201,"执行自定义异常处理HitOnlineClassException");
 //        }
         //调用service方法
         List<Teacher> list = teacherService.list();
